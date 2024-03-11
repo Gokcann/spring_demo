@@ -4,6 +4,8 @@ import com.gktech.spring_demo.entity.User;
 import com.gktech.spring_demo.repositories.UserRepository;
 import com.gktech.spring_demo.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<?> addUser(User user) {
         userRepository.save(user);
-        return new ResponseEntity<>();
+        return new ResponseEntity<>("CreatedUser", HttpStatus.CREATED);
+        //ResponseEntity geri donus bicimini tasiyan nesnedir.
+        //HttpEntity extend eder + httpstatus icinde barindirir.
     }
 
     @Override
