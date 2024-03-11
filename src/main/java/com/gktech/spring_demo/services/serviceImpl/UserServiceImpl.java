@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor     //@AutoWired kullanimi tavsiye edilmez
+@Service
 public class UserServiceImpl implements UserService {
     //@AutoWired   //denemek icin yazildi
     private final UserRepository userRepository;

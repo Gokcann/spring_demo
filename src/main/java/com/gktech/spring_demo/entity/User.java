@@ -25,6 +25,6 @@ public class User {
     private String name;
     private String surname;
     private String username;
-    //private Date date;
+    //private Date date; test amacli eklendi
 
 }
