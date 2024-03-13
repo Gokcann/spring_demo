@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     @Override
     public ResponseEntity<?> addUser(User user) {
-        boolean hasUserName = userRepository.existsByUserName(user.getUsername());
+        boolean hasUserName = userRepository.existsByUserName(user.getUserName());
         if (hasUserName) {
             return new ResponseEntity<>("Already exists user",HttpStatus.IM_USED);
         }
