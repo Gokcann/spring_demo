@@ -30,6 +30,11 @@ public class UserController {
     public ResponseEntity<?> findUser(@RequestParam Long id) {
         return userService.findUser(id);
     }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteUser(@RequestParam Long id) {
+        return userService.deleteUser(id);
+    }
     /*
     **Mapping Turleri;
     *
