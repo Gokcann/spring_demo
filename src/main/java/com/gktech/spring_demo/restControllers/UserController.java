@@ -15,14 +15,20 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserServiceImpl userService; //construcutor icin NoArgsConstructor ekledik.
+
     //Eger lombok constructor eklemek istemezsek final tanimlayip constructor kendimiz olusturmamiz lazim.
     @PostMapping("/save")
     public ResponseEntity<?> addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
+
     @PutMapping("/update")
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         return userService.updateUser(user);
+    }
+    @GetMapping("/find")
+    public ResponseEntity<?> findUser(@RequestParam Long id) {
+        return userService.findUser(id);
     }
     /*
     **Mapping Turleri;
