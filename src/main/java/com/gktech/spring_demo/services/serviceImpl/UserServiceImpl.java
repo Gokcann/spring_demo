@@ -11,10 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Optional;
 
-import static com.gktech.spring_demo.enums.PEnum.message;
-import static com.gktech.spring_demo.enums.PEnum.username;
-import static com.gktech.spring_demo.enums.PEnum.status;
+import static com.gktech.spring_demo.enums.PEnum.*;
 
 //@AllArgsConstructor     //@AutoWired kullanimi tavsiye edilmez
 //@RequiredArgsConstructor
@@ -48,5 +47,27 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<?> findUser(Long id) {
         return null;
+    }
+
+    @Override
+    public ResponseEntity<?> deleteUser(Long id) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<?> updateUser(User user) {
+        HashMap<PEnum,Object> hashMap = new HashMap<>();
+        Optional<User> optionalUser = userRepository.findById(user.getId());
+        if(optionalUser.isPresent()) {
+            userRepository.saveAndFlush(user);
+            hashMap.put(status,true);
+            hashMap.put(message,"Updated OK");
+            hashMap.put(username,user.getUserName());
+            return new ResponseEntity<>(hashMap,HttpStatus.OK);
+        }
+        hashMap.put(status,false);
+        hashMap.put(error,"User not found.");
+        hashMap.put(username,user.getUserName());
+        return new ResponseEntity<>(hashMap,HttpStatus.NOT_FOUND);
     }
 }

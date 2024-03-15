@@ -24,6 +24,7 @@ public class User {
     private Long id;
     private String name;
     private String surname;
+    //TODO username unique constraint yapilacak
     private String userName;
     //private Date date; test amacli eklendi
 

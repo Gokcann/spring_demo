@@ -20,6 +20,10 @@ public class UserController {
     public ResponseEntity<?> addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
+    @PutMapping("/update")
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
     /*
     **Mapping Turleri;
     *
