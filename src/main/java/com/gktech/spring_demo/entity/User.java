@@ -15,8 +15,8 @@ import java.util.Date;
 @EqualsAndHashCode
 */
 //Yukardaki tum annotationlar yerine @Data kullanabiliriz.
-@Data
-@Entity
+@Data //lombok kutuphanesi(getter setter constructor saglar)
+@Entity // db match islemi
 public class User {
     //Eger entity kullaniyorsak id tanimlanmali
     @Id

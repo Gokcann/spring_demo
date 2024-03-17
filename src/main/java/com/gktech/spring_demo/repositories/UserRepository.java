@@ -7,4 +7,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //save metodu JpaRepositoryden geliyor.
     boolean existsByUserName(String userName);
 
+    //**jpabuddy ile instance collection veya exists metodlari create edebiliriz!!
+    //ve hattaaa query bile ekleyebiliriz misal count??
+
+
+
 }
