@@ -12,5 +12,5 @@ public interface PostService {
     public ResponseEntity<Map<PEnum,Object>> deletePost(Long id);
     public ResponseEntity<Map<PEnum,Object>> updatePost(Post post);
 
-    public ResponseEntity<Map<PEnum,Object>> findPostAll(Post post);
+    public ResponseEntity<Map<PEnum,Object>> findPostAll();
 }
