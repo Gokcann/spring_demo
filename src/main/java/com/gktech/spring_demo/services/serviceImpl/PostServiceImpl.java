@@ -92,7 +92,7 @@ public class PostServiceImpl implements PostService {
         try {
             hashMap.put(status, true);
             hashMap.put(message, "List OK for posts");
-            hashMap.put(result, postRepository.findAll());
+            hashMap.put(result, postRepository.findAll()); //EAGER ise burada veriler yuklenir
             return new ResponseEntity<>(hashMap, HttpStatus.OK);
         } catch (Exception ex) {
             hashMap.put(status, false);

@@ -5,7 +5,6 @@ import com.gktech.spring_demo.enums.PEnum;
 import com.gktech.spring_demo.repositories.UserRepository;
 import com.gktech.spring_demo.services.UserService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

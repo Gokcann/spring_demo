@@ -1,12 +1,10 @@
 package com.gktech.spring_demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 @Getter
@@ -27,5 +25,10 @@ public class User {
     //TODO username unique constraint yapilacak
     private String userName;
     //private Date date; test amacli eklendi
+
+    /*ornek olarak eklendi
+    @OneToMany
+    List<Post> postList = new ArrayList<>();
+     */
 
 }
