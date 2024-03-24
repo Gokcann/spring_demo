@@ -21,12 +21,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String password;
     private String surname;
     //TODO username unique constraint yapilacak
     private String userName;
     //private Date date; test amacli eklendi
 
-    /*ornek olarak eklendi
+    /*ornek olarak onetomany iliskisi eklendi
     @OneToMany
     List<Post> postList = new ArrayList<>();
      */

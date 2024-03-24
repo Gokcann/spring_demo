@@ -3,8 +3,10 @@ package com.gktech.spring_demo.services.serviceImpl;
 import com.gktech.spring_demo.entity.User;
 import com.gktech.spring_demo.enums.PEnum;
 import com.gktech.spring_demo.repositories.UserRepository;
+import com.gktech.spring_demo.security.Security;
 import com.gktech.spring_demo.services.UserService;
 import lombok.AllArgsConstructor;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ import static com.gktech.spring_demo.enums.PEnum.*;
 public class UserServiceImpl implements UserService {
     //@AutoWired   //denemek icin yazildi
     private final UserRepository userRepository;
+    private final Security security;
     @Override
     public ResponseEntity<?> addUser(User user) {
         HashMap<PEnum,Object> hashMap = new HashMap<>();
@@ -33,6 +36,10 @@ public class UserServiceImpl implements UserService {
             //return new ResponseEntity<>("Already exists user.",HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(hashMap,HttpStatus.BAD_REQUEST);
         }
+        //base 64 sifreleme
+        //user.setPassword(Base64.encodeBase64URLSafeString(user.getPassword().getBytes()));
+        //md5 sifreleme
+        user.setPassword(Security.getMd5(user.getPassword()));
         userRepository.save(user);
         hashMap.put(status,true);
         hashMap.put(message,"Created User");
